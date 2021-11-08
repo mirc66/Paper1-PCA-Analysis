@@ -1,0 +1,70 @@
+R scripts used  from  R processing and Visualization of Metabolomics folder
+in this chapter in the order that they appear.
+
+https://www.intechopen.com/chapters/52527
+
+
+1. TIC.generator.R  	(not needed here)
+2. xcms.process.R	(not needed here)
+3. summary.stats.R
+4. pca.process.R
+5. pca.plots.R
+6. heatmap.generator.R
+7. boxplot.generator.R
+8. EIC.generator.R	(not needed here)
+9. volcanoplot.generator.R
+
+
+Headers 
+0DP1= day0, Dry Pistachio, Rep1
+3DA1= day 3,Dry Almond, Rep1
+
+
+
+Headers changed to above  from original file: ?\given files\ AllTreatmentsFinal.xls
+
+note  both RT and Cal'c columns have repeated values so  wont import
+
+Tried using the chemical id on colum 1 and it wont import in R so go back to 
+
+needed to use =Concat(A2,"/",B2) to create a unique value of the two
+
+Note when  the replace with smallest value /2  function gives inf becasue the whole row is 0.
+
+Went back to excel and deleted all the rows where the sum of all the variables =0 and then 
+reran with the replazezero function
+Cleared everything and re-ran 
+
+======================data wrangling===============================================
+after deleting all the rows with sum=0 and  creating anRT/Cal colum and setting all the data
+as numbers still get the error
+
+"Error in read.table(file = file, header = header, sep = sep, quote = quote,  : 
+  duplicate 'row.names' are not allowed"
+
+
+
+
+
+
+Will begin with  orig data  and attempt in this order:
+1 remove duplicate row names
+2 create RT/Cal column using concat function above
+3 create sum colum and if sum=0 all that in that row =0 remove that 
+
+test import  doint it this way it loaded without Errors
+4. when testing str() all numbers came out as char, need to go back and select all data and
+	format as numbers
+
+=======================================================================================
+testing new headers DPD1R1= DryPistachio Day 1 Rep1
+
+
+
+=======================testing using chemical name rather than rt/calc on x axis data column================
+DataFormattedV3.cvs		set up
+
+actually run DataFormattedV4 which has the names only rather than RT.cal 
+
+a
+
